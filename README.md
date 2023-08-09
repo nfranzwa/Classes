@@ -1,2 +1,2 @@
 # Classes
- UCSD code
+ UCSD Code
