@@ -13,8 +13,7 @@ x=A\b; Vo_notch_huh=simplify(x(6))
 latex(Vo_notch_huh);
 omega4=10; F_notch_huh=RR_tf([1 omega4 omega4^2],[1 3*omega4 omega4^2]);
 figure(1)
-RR_bode(F_notch_huh) 
-pause 
+RR_bode(F_notch_huh)  
 
 % y={I_a,        I_b,   I_c,    I_d,     I_o, V1,   V2}  <-- unknown vector
  C =[ 0           1      1      -1        0    0     0;   % I_b + I_c - I_d = 0
