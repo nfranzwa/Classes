@@ -25,7 +25,7 @@ pause
       0           0     R_c      0        0   -1     1;   % I_c*R_c + V2 - V1 = 0
       0           0      0    1/(C_d*s)   0    0    -1];  % I_d/(C_d*s) - V2 = 0
 d = [0;0;0;Vo;Vo;0;0];
-y=C\d; Vo_cir=simplify(y(6))
+y=C\d; Vo_cir=simplify(y(6));
 latex(Vo_cir);
 omega5=10; F_cir=RR_tf([1 omega5 omega5^2],[1 3*omega5 omega5^2]);
 figure(2)
