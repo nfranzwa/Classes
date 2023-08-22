@@ -12,9 +12,11 @@ b  =[Vo; Vo; 0; 0; 0; 0; 0];
 x=A\b; Vo_notch_huh=simplify(x(6));
 latex(Vo_notch_huh);
 omega4=10; F_notch_huh=RR_tf([1 omega4 omega4^2],[1 3*omega4 omega4^2]);
-RR_bode(F_notch_huh)
+figure(1)
+RR_bode(F_notch_huh) 
+pause 
 
-% y={I_a,   I_b,     I_c,     I_d,  I_o,  V1,  V2}  <-- unknown vector
+% y={I_a,        I_b,   I_c,    I_d,     I_o, V1,   V2}  <-- unknown vector
  C =[ 0           1      1      -1        0    0     0;   % I_b + I_c - I_d = 0
       1           0     -1       0        0    0     0;   % I_a - I_c = 0
       0           0      0      -1        1    0     0;   % I_o - I_d = 0
@@ -23,7 +25,10 @@ RR_bode(F_notch_huh)
       0           0     R_c      0        0   -1     1;   % I_c*R_c + V2 - V1 = 0
       0           0      0    1/(C_d*s)   0    0    -1];  % I_d/(C_d*s) - V2 = 0
 d = [0;0;0;Vo;Vo;0;0];
-y=C\d; Vo_cir=simplify(y(6));
+y=C\d; Vo_cir=simplify(y(6))
 latex(Vo_cir);
+omega5=10; F_cir=RR_tf([1 omega5 omega5^2],[1 3*omega5 omega5^2]);
+figure(2)
+RR_bode(F_cir)
 
 
