@@ -7,9 +7,9 @@ A  =[ R_a    0        0        0     0    1     0;   % I_a*R_a + V1 = Vo
       0      0     1/(C_c*s)   0     0   -1     1;   % I_c/(C_c*s) - V1 + V2 = 0
       0      1        1       -1     0    0     0;   % I_b + I_c - I_d = 0
       1      0        -1       0     0    0     0;   % I_a - I_c = 0
-      0      0        0       -1     1    0     0];  % I_o - I_d = 0
+      0      0        0       -1     1    0     0];  % I_o - I_d = 0 
 b  =[Vo; Vo; 0; 0; 0; 0; 0];
-x=A\b; Vo_notch_huh=simplify(x(6))
+x=A\b; Vo_notch_huh=simplify(x(6));
 latex(Vo_notch_huh);
 omega4=10; F_notch_huh=RR_tf([1 omega4 omega4^2],[1 3*omega4 omega4^2]);
 figure(1)
