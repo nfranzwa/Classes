@@ -1,6 +1,6 @@
 clear,clc, close all, syms s Vi Vs C L R_load Vo R c_1 
 
-% x={I_L,   I_C,     I_R,     I_Rload,  Vo,  Vm}  <-- unknown vector
+% x={I_L,  I_C,   I_R, I_Rload,    Vo,  Vm}  <-- unknown vector
 A  =[L*s    0       0       0       0    1  ;   % L*s*I_L + Vm = Vi
       0   1/(C*s)   0       0       1   -1  ;   % I_C/(C*s) + Vo - Vm = 0
       0     0       R       0      -1    0  ;   % I_R*R - Vo = 0
