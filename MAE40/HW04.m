@@ -7,7 +7,7 @@ eq5 = I_C == C*[s*V_OUT-V_AOUT];
 eq6 = V_OUT == I_R*R;
 eq7 = I_L == -I_C - I_R;
 A1 = solve(eq3,eq4,eq5,eq6,eq7,I_L,I_C,I_R,V_M,V_OUT);
-V_OUT_AD = A1.V_OUT;
+V_OUT_AD = A1.V_OUT
 AD=ilaplace(V_OUT_AD)
 %% Phase A, w/o diode
 eq8 = -I_L == I_C+I_R;
@@ -16,7 +16,7 @@ eq10 = V_OUT == I_R*R;
 eq11 = I_C == C*[s*V_OUT-V_AOUT];
 eq12 = I_C + I_R == 0;
 B1 = solve(eq8,eq9,eq10,eq11,eq12,I_L,I_C,I_R,V_M,V_OUT);
-V_OUT_AND = B1.V_OUT;
+V_OUT_AND = B1.V_OUT
 AND=ilaplace(V_OUT_AND)
 %% Phase B, diode
 eq13 = V_M == V_OUT - V_D/s;
@@ -25,7 +25,7 @@ eq15 = I_C == C*[s*V_OUT-V_AOUT];
 eq16 = V_OUT == I_R*R;
 eq17 = I_L == -I_C - I_R;
 C1 = solve(eq3,eq4,eq5,eq6,eq7,I_L,I_C,I_R,V_M,V_OUT);
-V_OUT_BD = C1.V_OUT;
+V_OUT_BD = C1.V_OUT
 BD=ilaplace(V_OUT_BD)
 %% Phase B, w/o diode
 eq18 = -I_L == I_C+I_R;
@@ -34,7 +34,7 @@ eq20 = V_OUT == I_R*R;
 eq21 = I_C == C*[s*V_OUT-V_BOUT];
 eq22 = I_C + I_R == 0;
 D1 = solve(eq8,eq9,eq10,eq11,eq12,I_L,I_C,I_R,V_M,V_OUT);
-V_OUT_BND = D1.V_OUT;
+V_OUT_BND = D1.V_OUT
 BND=ilaplace(V_OUT_BND)
 %% e
 c_2=I_BL;
@@ -95,9 +95,9 @@ t = linspace(0, 6e-7, 1000); % Adjust the number of points (1000 in this case) a
 %V_o_oa=V_AOUT*exp(-(t-t_a)/(R*C))
 %I_o_oa=V_IN(t-t_a)/L+I_AL
 %% P,B
-V_o_ob=B_2/s+B_1*(s+o)/(((s+o)^2)+w_d^2)+B_o*(w_d)/(((s+o)^2)+w_d^2);
-I_o_ob=C_2/s+C_1*(s+o)/(((s+o)^2)+w_d^2)+C_o*(w_d)/(((s+o)^2)+w_d^2);
-V_OO=ilaplace(V_o_ob);
+%V_o_ob=B_2/s+B_1*(s+o)/(((s+o)^2)+w_d^2)+B_o*(w_d)/(((s+o)^2)+w_d^2);
+%I_o_ob=C_2/s+C_1*(s+o)/(((s+o)^2)+w_d^2)+C_o*(w_d)/(((s+o)^2)+w_d^2);
+%V_OO=ilaplace(V_o_ob);
 %t=linspace(0,6e-7,100);
 %for i 1:100
 %    J=t(i)
@@ -107,7 +107,7 @@ V_OO=ilaplace(V_o_ob);
 %end
 %hold off
 
-V_AOT = B_2 + (B_1 * cos(w_d * t) .* exp(-o * t)) + (B_o * sin(w_d * t) .* exp(-o * t));
+%V_AOT = B_2 + (B_1 * cos(w_d * t) .* exp(-o * t)) + (B_o * sin(w_d * t) .* exp(-o * t));
 
 
 
@@ -115,5 +115,5 @@ V_AOT = B_2 + (B_1 * cos(w_d * t) .* exp(-o * t)) + (B_o * sin(w_d * t) .* exp(-
 
 
 % Calculate V_BOT for each time value
-V_BOT = B_2 + ((B_1 * cos(w_d * (t-t_b) .* exp(-o * (t-t_b))))) + (B_o * sin(w_d * (t-t_b)) .* exp(-o * (t-t_b)b));
+%V_BOT = B_2 + ((B_1 * cos(w_d * (t-t_b) .* exp(-o * (t-t_b))))) + (B_o * sin(w_d * (t-t_b)) .* exp(-o * (t-t_b)b));
 %%V_D - exp(-t/(2*C*R_L))*sin(t*(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2))*((I_BL/C + V_BOUT/(2*C*R_L))/(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2) + V_D/(2*C*R_L*(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2))) + cos(t*(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2))*exp(-t/(2*C*R_L))*(V_BOUT - V_D)
