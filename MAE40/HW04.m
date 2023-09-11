@@ -84,10 +84,6 @@ t = linspace(0, 6e-7, 1000); % Adjust the number of points (1000 in this case) a
 %for i 1:1000
 
     
-
- 
-
-
 % Plot the graph
 %plot(t, AD);
 %xlabel('t');
@@ -119,15 +115,5 @@ V_AOT = B_2 + (B_1 * cos(w_d * t) .* exp(-o * t)) + (B_o * sin(w_d * t) .* exp(-
 
 
 % Calculate V_BOT for each time value
-V_BOT = B_2 + (B_1 * cos(w_d * (t-t_b) .* exp(-o * (t)) + (B_o * sin(w_d * t) .* exp(-o * t));
+V_BOT = B_2 + ((B_1 * cos(w_d * (t-t_b) .* exp(-o * (t-t_b))))) + (B_o * sin(w_d * (t-t_b)) .* exp(-o * (t-t_b)b));
 %%V_D - exp(-t/(2*C*R_L))*sin(t*(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2))*((I_BL/C + V_BOUT/(2*C*R_L))/(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2) + V_D/(2*C*R_L*(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2))) + cos(t*(1/(C*L) - 1/(4*C^2*R_L^2))^(1/2))*exp(-t/(2*C*R_L))*(V_BOUT - V_D)
-
-
-%%
-q1= V_M-V_OUT==V_D/s;
-q2= V_OUT==R*I_R;
-q3= I_C==C*[s*V_OUT-V_BOUT];
-q4= V_IN/s-V_M==L*[s*I_L-I_BL];
-q5= I_L==I_C+I_R;
-sol =solve(q1,q2,q3,q4,q5,I_L,I_C,I_R,V_M,V_OUT,I_BL,V_BOUT);
-boost=sol.V_OUT;
